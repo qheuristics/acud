@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+# acud simulation tool
 
-You can use the [editor on GitHub](https://github.com/qheuristics/acud_proj/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+acud is a lightweight capacity expansion, economic dispatch and unit commitment simulation
+tool written in Python which uses csv and Excel files as input and output data format.
+It is an optimisation-based simulation tool that leverages multiple state-of-art data handling
+Python packages including pandas and xarray, powered by open source (e.g. glpk, cbc) or 
+commercial (e.g. cplex, gurobi) solver engines. The optimisation is defined as a 
+Linear Programming (LP) or Mixed-Integer Linear Programming (MIP) problem, depending on the 
+desired level of accuracy and complexity. It is able to handle multiple time resolutions,
+producing both chronological and duration curve-based results.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+acud applies a fundamental power market modelling approach. Fundamental market models use cost-based 
+bid and offer curves to derive estimations of electricity prices and other market outcomes. These models
+give insight into fundamental price drivers and market mechanisms. Therefore, fundamental market models
+can be used for the development of trading strategies as well as for investments or acquisitions.
 
-### Markdown
+## History
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+acud earliest´s predecessor was written in GNU MathProg, a specialised modelling language used to
+describe linear and mixed integer mathematical programming models.
+[MathProg](https://www.gnu.org/software/glpk/glpk.html) is a subset of
+the AMPL modelling language, and as such, benefits from the expresiveness and 
+succintness of the AMPL language, leading to compact and easy to understand
+problem formulation implementations. For acud, the main drawbacks of using Mathprog as modelling framework
+were only being able to use GLPK as solver and the low level support of MathProg for
+data analysis tasks related e.g. to solution reporting.
 
-```markdown
-Syntax highlighted code block
+These limitations finally lead to the switch from MathProg to PuLP as the mathematical programming framework
+underlying acud. PuLP provides interfaces to multiple commercial and open source solvers (GLPK included)
+thus providing more options. As a Python package, PuLP can be made to seamlessly work with 
+a vast collection of data analysis tools coded in this general programming language
 
-# Header 1
-## Header 2
-### Header 3
+[PYPOWER](https://github.com/rwl/PYPOWER) was a major source of inspiration during this transition to Python,
+especially regarding data handling routines. More recently, projects such as
+[Calliope](https://www.callio.pe/), [PyPSA](https://pypsa.org/) and [Dispa-SET](http://www.dispaset.eu)
+provided some very good ideas. Calliope is a multi-energy modelling system (in contrast to acud that is
+basically an electricity model) and PyPSA offers very detailed network flow analysis (transmission in acud
+is modelled as a transport problem based on net transfer capacities). Of these three models, acud is probably
+closest to Dispa-SET, with a focus on detailed representation of economic and technical aspects of generation resources.  
 
-- Bulleted
-- List
+## Project status
 
-1. Numbered
-2. List
+acud is very usable in its current form. In fact the analysis of several consulting assignments
+undertaken over the last ten years were based on acud results. It does not 
+however meet the standards of modern open source projects in terms of 
+documentation and automated unit testing. As soon as it is in publishable shape
+it will be made publicly available through a major open source project hosting platform such as GitHub, Bitbucket or GitLab.
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/qheuristics/acud_proj/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+In the meantime you can check the project [online documentation](https://acud.readthedocs.io/en/latest/) at
+[Read the Docs](https://acud.rtfd.io) and a related side project called
+[acud_extras](https://bitbucket.org/qheuristics/acud_extras).
