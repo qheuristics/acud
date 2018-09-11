@@ -1,4 +1,4 @@
-# Power market simulation tool
+# Power market simulation engine
 
 acud is a lightweight capacity expansion, economic dispatch and unit commitment simulation
 tool written in Python which uses csv and Excel files as input and output data format.
