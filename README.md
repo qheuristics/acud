@@ -1,4 +1,4 @@
-# acud simulation tool
+# acud power market simulation tool
 
 acud is a lightweight capacity expansion, economic dispatch and unit commitment simulation
 tool written in Python which uses csv and Excel files as input and output data format.
@@ -16,7 +16,7 @@ can be used for the development of trading strategies as well as for investments
 
 ## History
 
-acud earliest´s predecessor was written in GNU MathProg, a specialised modelling language used to
+acud's earliest predecessor was written in GNU MathProg, a specialised modelling language used to
 describe linear and mixed integer mathematical programming models.
 [MathProg](https://www.gnu.org/software/glpk/glpk.html) is a subset of
 the AMPL modelling language, and as such, benefits from the expresiveness and 
@@ -26,9 +26,9 @@ were only being able to use GLPK as solver and the low level support of MathProg
 data analysis tasks related e.g. to solution reporting.
 
 These limitations finally lead to the switch from MathProg to PuLP as the mathematical programming framework
-underlying acud. PuLP provides interfaces to multiple commercial and open source solvers (GLPK included)
-thus providing more options. As a Python package, PuLP can be made to seamlessly work with 
-a vast collection of data analysis tools coded in this general programming language
+underlying acud. [PuLP](https://www.coin-or.org/PuLP/) provides interfaces to multiple commercial and open 
+source solvers (GLPK included) thus providing more options. As a Python package, PuLP can be made to seamlessly
+work with a vast collection of data analysis tools coded in this general programming language
 
 [PYPOWER](https://github.com/rwl/PYPOWER) was a major source of inspiration during this transition to Python,
 especially regarding data handling routines. More recently, projects such as
@@ -40,10 +40,9 @@ closest to Dispa-SET, with a focus on detailed representation of economic and te
 
 ## Project status
 
-acud is very usable in its current form. In fact the analysis of several consulting assignments
-undertaken over the last ten years were based on acud results. It does not 
-however meet the standards of modern open source projects in terms of 
-documentation and automated unit testing. As soon as it is in publishable shape
+The analysis of several consulting assignments undertaken over the last ten years were based on acud results.
+This means that acud is very usable in its current form. It does not however meet the standards of modern
+open source projects in terms of documentation and automated unit testing. As soon as it is in publishable shape
 it will be made publicly available through a major open source project hosting platform such as GitHub, Bitbucket or GitLab.
 
 In the meantime you can check the project [online documentation](https://acud.readthedocs.io/en/latest/) at
